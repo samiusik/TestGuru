@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # TestGuru
 TestGuru
 =======
@@ -14,4 +13,3 @@ Rails ver. 5.2.2
 * test
 * question
 * answer
->>>>>>> v1.0
