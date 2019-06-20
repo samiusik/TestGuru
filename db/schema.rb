@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_13_210636) do
+ActiveRecord::Schema.define(version: 2019_06_20_203705) do
 
   create_table "answers", force: :cascade do |t|
     t.string "title", default: "correct", null: false
@@ -24,11 +24,29 @@ ActiveRecord::Schema.define(version: 2019_06_13_210636) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "question_answers", force: :cascade do |t|
+    t.integer "question_id"
+    t.integer "answer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["answer_id"], name: "index_question_answers_on_answer_id"
+    t.index ["question_id"], name: "index_question_answers_on_question_id"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.string "title", null: false
     t.integer "level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "test_questions", force: :cascade do |t|
+    t.integer "test_id"
+    t.integer "question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_test_questions_on_question_id"
+    t.index ["test_id"], name: "index_test_questions_on_test_id"
   end
 
   create_table "test_users", force: :cascade do |t|
@@ -46,6 +64,8 @@ ActiveRecord::Schema.define(version: 2019_06_13_210636) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "category_id"
+    t.integer "author_id"
+    t.index ["author_id"], name: "index_tests_on_author_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
   end
 
