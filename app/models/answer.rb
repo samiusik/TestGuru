@@ -1,7 +1,7 @@
 class Answer < ApplicationRecord
   belongs_to :question
 
-  scope :correct_answer, -> { where (title: 'correct').order(created_at: :desc) }
+  scope :correct_answer, -> { where (correct_or_no: 'correct') }
 
   validates :title, presence: :true
   validate :validate_number_of_answers
