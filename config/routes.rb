@@ -1,13 +1,18 @@
 Rails.application.routes.draw do
-  
-  root to: 'tests#index'
+  resources :tests do
+    resources :questions, shallow: true do
+      resources :answers, shallow: true, except: :index
+    end
 
-  resources :tests
+    member do
+       post :start
+    end
+  end
 
-  resources :tests
-    resources :questions, shallow: true
-  
-  get '/tests/:id/start', to: 'tests#start'
-
+  resources :results, only: %i[show update] do
+     member do
+       get :result
+     end
+  end
 end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
