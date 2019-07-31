@@ -12,7 +12,7 @@ class QuestionsController < ApplicationController
   end 
 
   def new
-    @question = @test.question.new
+    @question = @test.questions.new
   end
 
   def destroy
@@ -20,14 +20,21 @@ class QuestionsController < ApplicationController
     #redirect_to action: :index
   end
 
+  def create
+    @question = @test.questions.create(params.require(:question).permit(:title, :level))
+    render plain: @question.inspect
+  end
+
   private
 
   def find_test
     @test = Test.find(params[:test_id])
-  end
+      end
 
   def find_question
+    #@question = Question.find(params[:id])
     @question = Question.find(params[:id])
+    @question = @test.questions.find(params[:id])
   end
 
   def send_log_message
@@ -36,6 +43,10 @@ class QuestionsController < ApplicationController
 
   def rescue_not_found
     render file: "#{Rails.root}/public/404", status: :not_found
+  end
+
+  def question_params
+    params.require(:question).permit(:title)
   end
 
 end
