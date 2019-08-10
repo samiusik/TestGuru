@@ -1,17 +1,7 @@
 <h1>Create New Question</h1>
 
-<form action="/tests/<%= params[:test_id] %>/questions" method="post">
-  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+<%= form_with model: [@test, @question], local: true do |form| %>
 
-  <p>
-    <label for="question-title">Title:</label>
-    <input type="text" name="question[title]" id="question-id">
-  </p>
+<%= render 'form' %>
 
-  <p>
-    <label for="question-level">Level:</label>
-    <input type="text" name="question[level]" id="level-id">
-  </p><br>
-
-  <input type="submit" value="Create">
-</form>
+<% end %>
