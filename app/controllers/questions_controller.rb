@@ -1,14 +1,9 @@
 class QuestionsController < ApplicationController
 
-  before_action :find_question, only: %i[show update destroy]
+  before_action :find_question, only: %i[show update destroy edit]
   before_action :find_test, only: %i[index new create update destroy]
 
-  def index
-    @questions = @test.questions
-  end
-
-  def show 
-    @question = Question.find(params[:id])
+  def show
   end 
 
   def new
@@ -16,7 +11,6 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-    @question = Question.find(params[:id])
   end
   
   def create
@@ -37,7 +31,7 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    if @question.update_attributes(question_params)
+    if @question.update
       redirect_to @question
     else
       redirect_to action: :edit

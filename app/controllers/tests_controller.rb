@@ -15,7 +15,6 @@ class TestsController < ApplicationController
   end
 
   def edit
-    @test = Test.find(params[:test_id])
   end
 
   def create
@@ -37,8 +36,6 @@ class TestsController < ApplicationController
   end
 
   def destroy
-    @test = Test.find(params[:id])
-
     @test.destroy
     redirect_to tests_path
   end
