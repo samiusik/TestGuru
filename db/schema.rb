@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_31_135927) do
+ActiveRecord::Schema.define(version: 2019_09_13_182341) do
 
   create_table "answers", force: :cascade do |t|
     t.string "title", default: "correct", null: false
@@ -18,21 +18,13 @@ ActiveRecord::Schema.define(version: 2019_07_31_135927) do
     t.datetime "updated_at", null: false
     t.string "body"
     t.boolean "correct"
+    t.integer "question_id"
   end
 
   create_table "categories", force: :cascade do |t|
     t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "question_answers", force: :cascade do |t|
-    t.integer "question_id"
-    t.integer "answer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["answer_id"], name: "index_question_answers_on_answer_id"
-    t.index ["question_id"], name: "index_question_answers_on_question_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -44,6 +36,18 @@ ActiveRecord::Schema.define(version: 2019_07_31_135927) do
     t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
+  create_table "test_passages", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "test_id"
+    t.integer "current_question_id"
+    t.integer "correct_question", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["current_question_id"], name: "index_test_passages_on_current_question_id"
+    t.index ["test_id"], name: "index_test_passages_on_test_id"
+    t.index ["user_id"], name: "index_test_passages_on_user_id"
+  end
+
   create_table "test_questions", force: :cascade do |t|
     t.integer "test_id"
     t.integer "question_id"
@@ -51,15 +55,6 @@ ActiveRecord::Schema.define(version: 2019_07_31_135927) do
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_test_questions_on_question_id"
     t.index ["test_id"], name: "index_test_questions_on_test_id"
-  end
-
-  create_table "test_users", force: :cascade do |t|
-    t.integer "test_id"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["test_id"], name: "index_test_users_on_test_id"
-    t.index ["user_id"], name: "index_test_users_on_user_id"
   end
 
   create_table "tests", force: :cascade do |t|

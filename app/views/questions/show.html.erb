@@ -1,5 +1,17 @@
-<table>
-  <td> Name: <%= @question.title %> </td>
-  <th colspan="3"> Actions</th>
-</table>
+<h1><%= @question.test.title %> Question </h1>
+
+<p>
+  <%= @question.title %>
+</p>
+
+<h2> Answers: </h2>
+
+<%= link_to 'New answers', new_question_answer_path(@question) %>
+
+<ol>
+  <%= render @question.answers %>
+</ol>
+
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back', test_path(@question.test) %>
 
