@@ -3,4 +3,8 @@ class Question < ApplicationRecord
   has_many :answers
   
   validates :title, presence: :true
+
+  #def question_url
+  #  super || default_question
+  #end
 end
