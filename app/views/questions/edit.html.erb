@@ -1,0 +1,10 @@
+<h1>Edit <%= @question.title %> question</h1>
+
+<%= form_with model: [@test, @resource], local: true do |form| %>
+	<% if @question.errors.present? %>
+			<%= render 'shared/errors', resource: @question %>
+	<% end %>
+
+<%= render 'form' %>
+
+<% end %>

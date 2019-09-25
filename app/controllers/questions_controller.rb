@@ -1,18 +1,28 @@
 class QuestionsController < ApplicationController
 
-  before_action :find_question, only: %i[show destroy edit update]
-  before_action :find_test, only: %i[index new create]
+  before_action :find_question, only: %i[show update destroy edit]
+  before_action :find_test, only: %i[index new create update destroy]
 
-  def index
-    @questions = @test.questions
-  end
-
-  def show 
-
+  def show
   end 
 
   def new
     @question = @test.questions.new
+  end
+
+  def edit
+  end
+  
+  def create
+    @question = @test.questions.new(question_params)
+    
+    if @question.save
+     redirect_to @question
+    else
+      render :new
+    end
+    #@question = @test.questions.create(params.require(:question).permit(:title, :level))
+    #render plain: @question.inspect
   end
 
   def destroy
@@ -20,21 +30,24 @@ class QuestionsController < ApplicationController
     #redirect_to action: :index
   end
 
-  def create
-    @question = @test.questions.create(params.require(:question).permit(:title, :level))
-    render plain: @question.inspect
+  def update
+    if @question.update
+      redirect_to @question
+    else
+      redirect_to action: :edit
+    end
   end
+
 
   private
 
   def find_test
     @test = Test.find(params[:test_id])
-      end
+  end
 
   def find_question
     #@question = Question.find(params[:id])
     @question = Question.find(params[:id])
-    @question = @test.questions.find(params[:id])
   end
 
   def send_log_message
