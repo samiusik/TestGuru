@@ -11,4 +11,6 @@
   <%= render @questions %>
 </p>
 
-<%= link_to 'Back', tests_path(@test) %>
+
+<%= link_to 'New question', new_test_question_path(@test) %>
+<%= link_to 'Back', tests_path %>

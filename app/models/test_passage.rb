@@ -23,7 +23,7 @@ class TestPassage < ApplicationRecord
   end
 
   def percent
-    correct_questions * 100 / test.questions.count
+    correct_question * 100 / test.questions.count
   end
 
   def question_number
@@ -36,7 +36,7 @@ class TestPassage < ApplicationRecord
       #опечатка в видео self.correct_questions += 1 
     end
 
-    self.current_question = next_question
+    #self.current_question = next_question
     save!
   end
 
@@ -45,10 +45,12 @@ class TestPassage < ApplicationRecord
   private
 
   def before_validation_set_first_question
+    #binding.pry
     self.current_question = test.questions.order(:id).first if test.present?    
   end
 
   def before_validation_set_next_question
+    #binding.pry
     self.current_question = next_question
   end
 
