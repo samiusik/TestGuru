@@ -1,0 +1,10 @@
+<h1>The <%= @test_passage.test.title %> Test was completed! </h1>
+<% if @test_passage.success? %>
+  <h2 style="color: green">PASSED!</h2>
+<% else %>
+  <h2 style="color: red">NOT PASSED!</h2>
+<% end %>
+<p>
+  Отвечено верно на <%= @test_passage.percent %> %
+</p>
+<%= link_to 'All tests', tests_path %>
