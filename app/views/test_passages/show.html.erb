@@ -17,6 +17,6 @@
     Текущий вопрос - <%= @test_passage.question_number %> 
   </p>
   <p>
-    Всего вопросов в тесте - <%= Question.count %>
+    Всего вопросов в тесте - <%= @test_passage.test.questions.count %>
   </p> 
 <% end %>

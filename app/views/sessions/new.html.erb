@@ -1,0 +1,7 @@
+<% unless logged_in? %>
+<h1>Login</h1>
+<%= render 'form' %>
+<% else %>
+<h1>Hello <%= current_user.title %>, want to <%= link_to 'logout?', logout_path %></h1>
+<% end %>
+<%= flash_message %>
