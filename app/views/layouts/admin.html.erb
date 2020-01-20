@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<nav class="navigation nav-section">
+  <div>
+    <p class="nav-brand"><%= link_to 'TestGuru', tests_path %></p>
+    <ul class="link-list">
+      <% if user_signed_in? %>
+      </p>
+      <% else %>
+        <li class="nav-item"><%= link_to 'Login', user_session_path %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
+
+<html>
+  <head>
+    <title>Admin Panel - TestGuru</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if user_signed_in? %>
+      <p class="nav user">
+        Welcom, <b>  <%= current_user.email %></b> Guru</p>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+      </p>
+    <% end %>
+    <%= render 'admin/nav' %>
+    <%= render 'shared/flash' %>
+
+    <%= yield %>
+  </body>
+</html>

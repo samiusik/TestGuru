@@ -3,5 +3,5 @@
 <%= form_with model: [@test, @question], local: true do |form| %>
 
 <%= render 'form' %>
-
+<%= link_to 'Back', admin_test_path(@test) %>
 <% end %>

@@ -1,14 +1,10 @@
 <h1>Tests with questions</h1>
-
 <table>
   <tr>
     <th>Title:</th>
     <th>Level:</th>
-    <th colspan="4">Actions:</th>
+    <th>Actions:</th>
   </tr>
 
-  <%= render @tests %>
+  <%= render Test.all %>
 </table>
-
-
-<p> <%= link_to "New test", new_test_path %></p>

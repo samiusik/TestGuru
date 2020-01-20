@@ -4,13 +4,10 @@
   <div>
     <p class="nav-brand"><%= link_to 'TestGuru', tests_path %></p>
     <ul class="link-list">
-      <li class="nav-item"><%= link_to 'Sign up', signup_path %></li>
-      <% if logged_in? %>
-        <li class="nav-item", Welcome, <%= current_user.title %> Guru
-        <li class="nav-item"><%= link_to 'Want to logout?', logout_path %></li>
+      <% if user_signed_in? %>
       </p>
       <% else %>
-        <li class="nav-item"><%= link_to 'Login', login_path %></li>
+        <li class="nav-item"><%= link_to 'Login', user_session_path %></li>
       <% end %>
     </ul>
   </div>
@@ -27,10 +24,14 @@
   </head>
 
   <body>
-    <% if logged_in? %>
-      <p class="nav user">Welcom, <b><%= current_user.email %> - <%= current_user.title %></b> Guru</p>
-      
+    <% if user_signed_in? %>
+      <p class="nav user">
+        Welcom, <b>  <%= current_user.email %></b> Guru</p>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+      </p>
     <% end %>
+
+    <%= render 'shared/flash' %>
 
     <%= yield %>
   </body>
