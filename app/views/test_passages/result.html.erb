@@ -1,10 +1,11 @@
-<h1>The <%= @test_passage.test.title %> Test was completed! </h1>
-<% if @test_passage.success? %>
-  <h2 style="color: green">PASSED!</h2>
+<h1><%= t('.header', title: @test_passage.test.title) %></h1>
+
+<% if @test_passage.completed? %>
+  <p style="color: green"><%= t('.success') %></p>
 <% else %>
-  <h2 style="color: red">NOT PASSED!</h2>
+  <p style="color: red"><%= t('.fail') %></p>
 <% end %>
 <p>
   Отвечено верно на <%= @test_passage.percent %> %
 </p>
-<%= link_to 'All tests', tests_path %>
+<%= link_to t('.tests_link'), tests_path %>

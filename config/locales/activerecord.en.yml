@@ -1,0 +1,15 @@
+en:
+  activerecord:
+    models:
+      test: "Test"
+
+    attributes:
+      test:
+        title: "Title"
+        category: "Category"
+        level: "Level"
+
+    errors:
+      messages:
+        blank: "Can't be blank"
+        required: "this field must exist"

@@ -32,6 +32,8 @@ gem 'jbuilder', '~> 2.5'
 # AUTH
 
 gem 'devise', '~>4.7'
+gem 'devise-russian', '~> 2.0', '>= 2.0.1.1'
+gem 'rails-i18n', '~> 5.0.0'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

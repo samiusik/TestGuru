@@ -1,21 +1,19 @@
-<h1> Title: 
+<p>
+  <strong><%= t('.title') %>:</strong>
   <%= @test.title %>
-</h1>
-
-<p> Level: 
-  <%= @test.level %>
 </p>
 
 <p>
+  <strong><%= t('.level') %>:</strong>
+  <%= @test.level %>
+</p>
+<p>
   List questions:
   <%= render @test.questions %>
-  <%= link_to 'New question', new_admin_test_question_path(@test) %>
+  <%= link_to t('.create'), new_admin_test_question_path(@test) %>
 </p>
 
-<ol>
-  <%= render @test.questions %>
-</ol>
 
 
-<%= link_to 'Edit', edit_admin_test_path(@test) %>
-<%= link_to 'Back', admin_tests_path %>
+<%= link_to t('navigation.edit'), edit_admin_test_path(@test) %> |
+<%= link_to t('navigation.back'), admin_tests_path %>

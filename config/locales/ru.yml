@@ -1,0 +1,85 @@
+ru:
+  helpers:
+    submit:
+      test:
+        create: "Создать Тест"
+        update: "Обновить Тест"
+
+    select:
+      prompt: "Выберите категорию"
+
+    label:
+      test:
+        title: "Название"
+        level: "Уровень сложности"
+        category_id: "Категория"
+
+  shared:
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружена %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
+
+  tests:
+    index:
+      header: "Доступные Тесты"
+      no_tests_available: "Нет доступных тестов."
+      table:
+        title: "Название"
+        level: "Уровень"
+        questions: "Вопросы"
+        actions: "Действия"
+      start_button: "Пройти"
+
+  test_passages:
+    result:
+      header: "%{title} Тест был Пройден"
+      fail: "Тест не пройден, попробуйте снова"
+      success: "Вы успешно закончили тест!"
+      tests_link: "Еще тесты"
+    show:
+      header: "Прохождение Теста %{title}"
+      next: "Следующий вопрос"
+      status: "Вопрос %{current_question}/%{count_questions}"
+
+  admin:
+    tests:
+      create:
+        success: "Тест успешно создан."
+      index:
+        header: "Доступные Тесты"
+        table:
+          title: "Название"
+          level: "Уровень"
+          questions: "Вопросы"
+          actions: "Действия"
+        no_tests_available: "Нет доступных тестов"
+        new_test: "Новый тест"
+      edit:
+        header: "Редактировать %{test_title} Тест"
+      new:
+        header: "Создать Новый Тест"
+      update:
+        success: "Тест успешно обновлен!"
+      destroy:
+        success: "Тест успешно удалён!"
+      show:
+        title: "Название"
+        level: "Уровень"
+        author: "Автор"
+        questions: "Вопросы"
+    question:
+        create: "Создать новый вопрос"
+
+  navigation:
+    back: "Назад"
+    edit: "Редактировать"
+    open: "Перейти"
+
+  actions:
+    show: "Показать"
+    edit: "Редактировать"
+    delete: "Удалить"
+    delete_confirmation: "Вы уверены?"

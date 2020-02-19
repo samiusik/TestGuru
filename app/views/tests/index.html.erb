@@ -1,10 +1,23 @@
-<h1>Tests with questions</h1>
-<table>
-  <tr>
-    <th>Title:</th>
-    <th>Level:</th>
-    <th>Actions:</th>
-  </tr>
+<h1><%= t('tests.index.header') %></h1>
 
-  <%= render Test.all %>
-</table>
+<% if @tests.present? %>
+  <table>
+    <tr>
+      <th><%= t('.table.title') %></th>
+      <th><%= t('.table.level') %></th>
+      <th><%= t('.table.questions') %></th>
+      <th><%= t('.table.actions') %></th>
+    </tr>
+    <% @tests.each do  |test| %>
+      <tr>
+        <td><%= test.title %></td>
+        <td><%= test.level %></td>
+        <td><%= test.questions.count %></td>
+        <td><%= button_to t('.start_button'), start_test_path(test) %></td>
+      </tr>
+    <% end %>
+
+  </table>
+<% else %>
+  <p><%= t('.no_tests_available') %></p>
+<% end %>

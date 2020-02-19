@@ -1,33 +1,81 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
   hello: "Hello world"
+  helpers:
+    submit:
+      test:
+        create: "Create Test"
+        update: "Update Test"
+    select:
+      prompt: "Select category"
+
+    label:
+      test:
+        title: "Title"
+        level: "Level"
+        category_id: "Category"
+
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
+
+  tests:
+    index:
+      header: "Tricky Tests"
+      no_tests_available: "There is no tests available."
+      table:
+        title: "Title"
+        level: "Level"
+        questions: "Questions"
+        actions: "Actions"
+      start_button: "Start"
+
+  test_passages:
+    result:
+      header: "The %{title} Test was Completed!"
+      fail: "You failed, try again"
+      success: "You successfully passed the test"
+      tests_link: "Show more tests"
+    show:
+      header: "Passing the %{title} Test"
+      next: "Next question"
+      status: "Question %{current_question}/%{count_questions}"
+
+  admin:
+    tests:
+      create:
+        success: "Test was successfully created."
+      index:
+        header: "Tricky Tests"
+        table:
+          title: "Title"
+          level: "Level"
+          questions: "Questions"
+          actions: "Actions"
+        no_tests_available: "There is no tests available."
+        new_test: "New test"
+      edit:
+        header: "Edit %{test_title} Test"
+      new:
+        header: "Create New Test"
+      update:
+        success: "Test successfully updated!"
+      destroy:
+        success: "Test successfully deleted!"
+      show:
+        title: "Title"
+        level: "Level"
+        author: "Author"
+        questions: "Questions"
+
+  navigation:
+    back: "Back"
+    edit: "Edit"
+    detail: "Detail"
+
+  actions:
+    show: "Show"
+    edit: "Edit"
+    delete: "Delete"
+    delete_confirmation: "Are you sure?"

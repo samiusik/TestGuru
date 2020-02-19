@@ -1,0 +1,15 @@
+ru:
+  activerecord:
+    models:
+      test: "Тест"
+
+    attributes:
+      test:
+        title: "Название"
+        category: "Категория"
+        level: "Уровень сложности"
+
+    errors:
+      messages:
+        blank: "не может быть пустым"
+        required: "это обязательное поле"
