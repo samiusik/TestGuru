@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <%= link_to 'TestGuru', tests_path, class: 'navbar-brand' %>
+
+  <span class = "navbar-nav ml-auto">
+    
+    <li><% if user_signed_in? %>
+      Welcom, <b><%= current_user.email %></b> Guru </li> 
+      <li><% if current_user.admin? %>
+        <%= link_to 'Admin panel', admin_tests_path, class: 'nav-link' %>
+        <% end %></li>
+      <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link' %></li>
+    <% else %>
+      <li><%= link_to 'Sign Up', new_user_registration_path, class: 'nav-link' %></li>
+      <li><%= link_to 'Log In', new_user_session_path, class: 'nav-link' %></li>
+    <% end %>
+  </span>
+</nav>

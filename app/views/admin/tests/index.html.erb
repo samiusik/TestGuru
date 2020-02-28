@@ -1,28 +1,28 @@
-<h1><%=t('.header')%></h1>
+<h1 class="row justify-content-center"><%=t('.header')%></h1>
 
-<p> <%= link_to t('.new_test'), new_admin_test_path %></p>
+<p> <%= link_to t('.new_test'), new_admin_test_path, class: 'btn btn-primary ml-2' %></p>
 
-  <table>
+  <table class="table table-striped ml-2">
     <tr>
-      <th><%= t('.table.title') %></th>
-      <th><%= t('.table.level') %></th>
-      <th><%= t('.table.questions') %></th>
-      <th colspan="4"><%= t('.table.actions') %></th>
+        <th><%= t('.table.title') %></th>
+        <th><%= t('.table.level') %></th>
+        <th><%= t('.table.questions') %></th>
+        <th colspan="4"><%= t('.table.actions') %></th>
     </tr>
 
     <% @tests.each do |test| %>
       <tr>
-        <td><%= test.title %></td>
-        <td><%= test.level %></td>
-        <td><%= test.questions.count %></td>
-        <td><%= link_to t('actions.show'), admin_test_path(test) %></td>
-        <td><%= link_to t('actions.edit'), edit_admin_test_path(test) %></td>
-        <td>
-          <%= link_to t('actions.delete'), admin_test_path(test),
-                      method: :delete,
-                      data: { confirm: t('actions.delete_confirmation') } %>
-    <% end %>
-
+        <div class="d-flex justify-content-around ml-2">
+          <td><%= test.title %></td>
+          <td><%= test.level %></td>
+          <td><%= test.questions.count %></td>
+          <td><%= link_to t('actions.show'), admin_test_path(test), class: 'btn btn-primary' %></td>
+          <td><%= link_to t('actions.edit'), edit_admin_test_path(test), class: 'btn btn-primary' %></td>
+          <td>
+            <%= link_to t('actions.delete'), admin_test_path(test), class: 'btn btn-primary',
+                        method: :delete,
+                        data: { confirm: t('actions.delete_confirmation') } %>
+      <% end %>
+    </div>
   </table>
 </table>
-

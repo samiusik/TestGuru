@@ -6,6 +6,10 @@ class TestsController < ApplicationController
     current_user.tests.push(@test)
     redirect_to current_user.test_passage(@test)
   end
+  
+  def index
+    @tests = Test.all
+  end
 
   private
 

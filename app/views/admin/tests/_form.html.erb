@@ -2,21 +2,21 @@
 
   <%= render 'shared/errors', resource: @test %>
   
-    <p>
+    <div class="form_group"><p>
        <%= form.label :title %> <br>
        <%= form.text_field :title %>
-    </p>
+    </p></div>
 
-    <p>
+    <div class="form_group"><p>
        <%= form.label :level  %> <br>
        <%= form.number_field :level %>
-    </p>
+    </p></div>
 
-    <p>
+    <div class="form_group"><p>
       <%= form.label :category_id %>:
       <%= form.collection_select :category_id, Category.all, :id, :title,
       promt: true %>
-    </p>
+    </p></div>
 
     <p> <%= form.submit %> </p>
 <% end %>
