@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light">  
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <%= link_to 'TestGuru', tests_path, class: 'navbar-brand' %>  
   <div class="collapse navbar-collapse">
     <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %>
