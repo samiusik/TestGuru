@@ -1,0 +1,6 @@
+<h1>Create New Question</h1>
+  
+<%= form_with model: [:admin, @test, @question], local: true do |form| %>
+<%= render 'form' %>
+<%= link_to 'Back', admin_test_path(@test) %>
+<% end %>

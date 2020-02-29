@@ -41,7 +41,6 @@ class TestPassage < ApplicationRecord
   end
 
 
-
   private
 
   def before_validation_set_first_question

@@ -1,24 +1,33 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :authenticate_user!
+  before_action :set_locale
 
-  before_action :authenticate!
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  
+  def default_url_options
+      { lang: I18n.locale == I18n.default_locale ? nil : I18n.locale }
+  end
 
-  helper_method :logged_in?
-  helper_method :current_user
 
-private
-  def authenticate!
-    unless current_user
-      cookies[:path] = request.path
-      redirect_to login_path, alert: 'You need to login!'
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
+  end
+
+    def after_sign_in_path_for(resource)
+    flash[:notice] = "Hello, #{current_user.last_name}!"
+    if current_user.admin?
+      admin_tests_path
+    else
+      super
     end
   end
 
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
-  end
+  private
 
-  def logged_in?
-    current_user.present?
+  def set_locale
+    I18n.locale = I18n.locale_available?(params[:lang]) ? params[:lang] : I18n.default_locale
   end
 end

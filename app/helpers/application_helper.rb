@@ -6,7 +6,7 @@ module ApplicationHelper
 
   def flash_message
     flash.map do |key, msg|
-      content_tag :div, msg, :class => "flash #{key}"
+      content_tag :div, msg, :class => "alert alert-primary #{key}", :role => 'alert'
     end.join.html_safe
   end
   

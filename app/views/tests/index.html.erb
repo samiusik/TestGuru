@@ -1,14 +1,27 @@
-<h1>Tests with questions</h1>
-
-<table>
-  <tr>
-    <th>Title:</th>
-    <th>Level:</th>
-    <th colspan="4">Actions:</th>
-  </tr>
-
-  <%= render @tests %>
-</table>
-
-
-<p> <%= link_to "New test", new_test_path %></p>
+<div class="card-header mt-2">
+  <h1 class="row justify-content-center"><%= t('tests.index.header') %></h1>
+</div>
+  <% if @tests.present? %>
+    <table class="table table-striped-center mt-5">
+      <tr>
+        <th><%= t('.table.title') %></th>
+        <th><%= t('.table.level') %></th>
+        <th><%= t('.table.questions') %></th>
+        <th><%= t('.table.actions') %></th>
+      </tr>
+    
+      <% @tests.each do  |test| %>
+        <tr>
+          <div class="d-flex justify-content-around ml-2">
+            <td><%= test.title %></td>
+            <td><%= test.level %></td>
+            <td><%= test.questions.count %></td>
+            <td><%= button_to t('.start_button'), start_test_path(test), class: 'btn btn-primary' %></td>
+          </tr>
+        <% end %>
+      </table>
+    <% else %>
+      <p><%= t('.no_tests_available') %></p>
+    <% end %>
+  </table>
+</div>
