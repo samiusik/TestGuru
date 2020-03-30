@@ -69,3 +69,6 @@ gem 'bootstrap', '~> 4.4.1'
 gem 'devise', '~>4.7'
 gem 'devise-russian', '~> 2.0', '>= 2.0.1.1'
 gem 'rails-i18n', '~> 5.0.0'
+gem 'faraday'
+gem "octokit", "~> 4.0"
+gem 'dotenv-rails'

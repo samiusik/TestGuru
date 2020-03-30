@@ -1,0 +1,27 @@
+<div class="row justify-content-center mt-3">
+  <div class="col col-md-8">
+    <h1><%= t('.header') %></h1>
+    <div class="card border-primary">
+      <div class="card-body">
+        <% if user_signed_in? %>
+
+          <table class="table table-striped">
+            <tr>
+              <th><%= t('.question') %></th>
+              <th><%= t('.url') %></th>
+              <th><%= t('.email') %></th>
+            </tr>
+
+            <% @gists.each do |gist| %>
+              <tr>
+                <td><%= link_to truncate(gist.question.title, length: 25), admin_question_path(gist.question) %></td>
+                <td><%= link_to_gist(gist.url) %></td>
+                <td><%= gist.user.email %></td>
+              </tr>
+            <% end %>
+          </table>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -43,6 +43,13 @@ ru:
       header: "Прохождение Теста %{title}"
       next: "Следующий вопрос"
       status: "Вопрос %{current_question}/%{count_questions}"
+    gist:
+      success: "Gist успешно сохранен!"
+      failure: "Во время сохранения gist произошла ошибка"
+
+  services:
+    gist_question_service:
+      description: "Вопрос об %{title} из TestGuru"
 
   admin:
     tests:
@@ -55,8 +62,10 @@ ru:
           level: "Уровень"
           questions: "Вопросы"
           actions: "Действия"
+
         no_tests_available: "Нет доступных тестов"
         new_test: "Новый тест"
+
       edit:
         header: "Редактировать %{test_title} Тест"
       new:
@@ -70,16 +79,25 @@ ru:
         level: "Уровень"
         author: "Автор"
         questions: "Вопросы"
+
     question:
         create: "Создать новый вопрос"
+    gists:
+      index:
+        header: "Список гистов"
+        question: "Вопрос"
+        url: "Адрес"
+        email: "Почта"
 
   navigation:
     back: "Назад"
     edit: "Редактировать"
     open: "Перейти"
-
   actions:
     show: "Показать"
     edit: "Редактировать"
     delete: "Удалить"
     delete_confirmation: "Вы уверены?"
+  services:
+    gist_question_service:
+      description: "Вопрост теста %{title} из ТестГуру"
