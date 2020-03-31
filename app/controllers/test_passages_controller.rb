@@ -23,13 +23,17 @@ class TestPassagesController < ApplicationController
   end
 
   def gist
-    result = GistQuestionService.new(@test_passage.current_question).call
+    question = @test_passage.current_question
+    service = GistQuestionService.new(question, client: GitHubClient.new)
+    response = service.call
 
-    if result.success?
-      Gist.create(url: result.html_url, question: @test_passage.current_question, user: current_user)
+    if service.client.success?
+      
+      html_url = response[:html_url]
+      question.gists.create(user: current_user, url: html_url)
       flash[:notice] = t(
           '.success',
-          { link: view_context.link_to('Gist', result.html_url, target: '_blank') }
+          { link: view_context.link_to('Gist', html_url, target: '_blank') }
       )
     else
       flash[:alert] = t('.failure')

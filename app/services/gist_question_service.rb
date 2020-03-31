@@ -1,5 +1,7 @@
 class GistQuestionService
 
+  attr_reader :client
+
   def initialize(question, client: nil)
     @question = question
     @test = @question.test
@@ -7,8 +9,7 @@ class GistQuestionService
   end
 
   def call
-    response = @client.create_gist(gist_params)
-    ResultObject.new(response)
+    @client.create_gist(gist_params)
   end
 
   private
@@ -28,21 +29,5 @@ class GistQuestionService
     content = [@question.title]
     content += @question.answers.pluck(:title)
     content.join("\n")
-  end
-
-
-  class ResultObject
-
-    def initialize(response = nil)
-      @response = response
-    end
-
-    def success?
-      html_url.present?
-    end
-
-    def html_url
-      @response&.html_url
-    end
   end
 end
