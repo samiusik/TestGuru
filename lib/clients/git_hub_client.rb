@@ -8,10 +8,10 @@ class GitHubClient
     @octokit_client.create_gist(params)
   end
 
-  def success?
-    @octokit_client.last_response.status == 201
+  def last_response
+    @octokit_client.last_response
   end
-
+  
   private
 
   def setup_client

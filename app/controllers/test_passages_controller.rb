@@ -27,7 +27,7 @@ class TestPassagesController < ApplicationController
     service = GistQuestionService.new(question, client: GitHubClient.new)
     response = service.call
 
-    if service.client.success?
+    if service.success?
       
       html_url = response[:html_url]
       question.gists.create(user: current_user, url: html_url)
