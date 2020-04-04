@@ -4,12 +4,16 @@
     <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %>
         <% if current_user.admin? %>
+        <li class="nav-item">
+          <%= link_to t('.gists'), admin_gists_path, class: 'nav-link' %>
+        </li>
         <li class="navbar-item">
           <%= link_to 'Admin panel', admin_tests_path, class: 'nav-link' %>
         </li>
         <li class="navbar-item">
           <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
         </li>
+
       <% else %>
         <li class="navbar-item">
           <%= link_to 'Log In', new_user_session_path, class: 'nav-link' %>
