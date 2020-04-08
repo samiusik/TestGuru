@@ -49,6 +49,8 @@ en:
     tests:
       create:
         success: "Test was successfully created."
+      form_inline:
+        submit: "Ok"
       index:
         header: "Tricky Tests"
         table:
