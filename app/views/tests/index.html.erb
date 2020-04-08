@@ -1,24 +1,20 @@
-<div class="card-header mt-2">
+<div class="card-header ml-2">
   <h1 class="row justify-content-center"><%= t('tests.index.header') %></h1>
 </div>
   <% if @tests.present? %>
-    <table class="table table-striped-center mt-5">
+    <table class="table table-striped ml-2">
       <tr>
-        <th><%= t('.table.title') %></th>
+        <th class="sort-by-title pointer">
+        <%= t('.table.title') %>
+        <%= octicon 'arrow-up', class: 'text-success hide' %>
+        <%= octicon 'arrow-down', class: 'text-success hide' %>
+      </th>
         <th><%= t('.table.level') %></th>
         <th><%= t('.table.questions') %></th>
-        <th><%= t('.table.actions') %></th>
+        <th colspan="1"><%= t('.table.actions') %></th>
       </tr>
     
-      <% @tests.each do  |test| %>
-        <tr>
-          <div class="d-flex justify-content-around ml-2">
-            <td><%= test.title %></td>
-            <td><%= test.level %></td>
-            <td><%= test.questions.count %></td>
-            <td><%= button_to t('.start_button'), start_test_path(test), class: 'btn btn-primary' %></td>
-          </tr>
-        <% end %>
+      <%= render @tests %> 
       </table>
     <% else %>
       <p><%= t('.no_tests_available') %></p>
