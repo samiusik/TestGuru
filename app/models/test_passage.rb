@@ -30,6 +30,11 @@ class TestPassage < ApplicationRecord
     test.questions.order(id: :asc).index(current_question) + 1
   end
 
+  def current_progress
+    question_number_progress = question_number - 1
+    question_number_progress / test.questions.count.to_f  * 100
+  end
+
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
       self.correct_question += 1 

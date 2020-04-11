@@ -8,6 +8,12 @@ Rails.application.routes.draw do
 
   root 'tests#index'
 
+  namespace :admin do
+    resources :tests, only: :index do
+      patch :update_inline, on: :member
+    end
+  end
+
     resources :tests, only: :index do
       member do
         post :start

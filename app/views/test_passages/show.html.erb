@@ -1,6 +1,8 @@
 <h1><%= t('.header', title: @test_passage.test.title) %></h1>
-
-<p>
+<%= content_tag :div, class: "progress mr-2 ml-2", data: { percent: @test_passage.current_progress } do %>
+  <div class="progress-bar" role="progressbar"
+       aria-valuemin="0" aria-valuemax="100"></div>
+<% end %><p>
   <b><%= @test_passage.current_question.title %></b>
 </p>
 
