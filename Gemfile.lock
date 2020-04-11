@@ -148,11 +148,7 @@ GEM
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
-<<<<<<< HEAD
-    public_suffix (4.0.4)
-=======
     public_suffix (4.0.3)
->>>>>>> master
     puma (3.12.4)
     rack (2.2.2)
     rack-test (1.1.0)
@@ -273,13 +269,9 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   octicons_helper
   octokit (~> 4.0)
-<<<<<<< HEAD
   pg
   pry (~> 0.12.2)
-  public_suffix (~> 4.0.3)
-=======
-  pry
->>>>>>> master
+  public_suffix (~> 4.0.4)
   puma (~> 3.12)
   rails (~> 5.2.3)
   rails-i18n (~> 5.0.0)
