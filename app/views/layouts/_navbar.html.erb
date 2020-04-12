@@ -10,6 +10,9 @@
         <li class="navbar-item">
           <%= link_to 'Admin panel', admin_tests_path, class: 'nav-link' %>
         </li>
+          <li class="nav-item">
+            <%= link_to 'Feedback', send_feedback_path, class: 'nav-link' %>
+          </li>
         <li class="navbar-item">
           <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
         </li>
