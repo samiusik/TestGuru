@@ -45,8 +45,10 @@ ru:
       next: "Следующий вопрос"
       status: "Вопрос %{current_question}/%{count_questions}"
     gist:
-      success: "Gist успешно сохранен!"
+      success: "Gist успешно сохранен! %{link}"
       failure: "Во время сохранения gist произошла ошибка"
+    update:
+      failure: "Выберите хотя бы 1 ответ"
 
   services:
     gist_question_service:

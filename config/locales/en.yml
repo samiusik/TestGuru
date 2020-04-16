@@ -43,8 +43,10 @@ en:
       next: "Next question"
       status: "Question %{current_question}/%{count_questions}"
     gist:
-      success: "Gst was successfully created! Link is %{link}"
+      success: "Gist was successfully created! Link is %{link}"
       failure: "An error occurred while saving gist"    
+    update:
+      failure: "change 1 answer"
 
   admin:
     tests:
