@@ -38,6 +38,7 @@ en:
       success: "You successfully passed the test"
       tests_link: "Show more tests"
     show:
+      no_questions: "This test have not questions"
       header: "Passing the %{title} Test"
       next: "Next question"
       status: "Question %{current_question}/%{count_questions}"

@@ -2,7 +2,8 @@
 <%= content_tag :div, class: "progress mr-2 ml-2", data: { percent: @test_passage.current_progress } do %>
   <div class="progress-bar" role="progressbar"
        aria-valuemin="0" aria-valuemax="100"></div>
-<% end %><p>
+<% end %>
+<p>
   <b><%= @test_passage.current_question.title %></b>
 </p>
 
@@ -14,13 +15,14 @@
     </p>
   <% end %>
 
-  <p><%= link_to 'Gist question', gist_test_passage_path(@test_passage), method: :post %></p>
-
-  <p><%= form.submit t('.next') %></p>
+  <p>
+    <%= form.submit t('.next') %>
+  </p>
   <p>
     Текущий вопрос - <%= @test_passage.question_number %> 
   </p>
   <p>
     Всего вопросов в тесте - <%= @test_passage.test.questions.count %>
   </p> 
+  <p><%= link_to 'Gist question', gist_test_passage_path(@test_passage), method: :post %></p>
 <% end %>

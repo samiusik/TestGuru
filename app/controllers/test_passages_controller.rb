@@ -2,6 +2,7 @@ class TestPassagesController < ApplicationController
 
   before_action :authenticate_user!
   before_action :set_test_passage, only: %i[show update result gist]
+  before_action :validate_question_present, only: %i[show]
 
   def show
     
@@ -46,6 +47,13 @@ class TestPassagesController < ApplicationController
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
+  end
+
+  def validate_question_present
+    unless @test_passage.test.questions.present?
+      flash[:alert] = t('.no_questions')
+      redirect_to tests_path
+    end
   end
 
 end
