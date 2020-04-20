@@ -45,6 +45,18 @@ class TestPassage < ApplicationRecord
     save!
   end
 
+  def time_up?
+    test_finish_timer ? Time.current > test_finish_timer : false
+  end
+
+  def test_finish_timer
+    created_at + test.timer.minutes if test.timer.present?
+  end
+
+  def timer_to_client
+    test_finish_timer.to_f * 1000
+  end
+
 
   private
 
