@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   
   get 'users/new'
 
+  
+  resources :feedbacks, only: :create
+  get 'feedback', to: "feedbacks#new", as: "send_feedback"
+
+
   get 'gists/index'
 
   root 'tests#index'

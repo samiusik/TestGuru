@@ -8,24 +8,21 @@ class GistQuestionService
   end
 
   def call
-    @client.create_gist(gist_params)
+    response = @client.create_gist(gist_params)
+    ResultObject.new(response)
   end
-
   
-  def success?
-    @client.last_response.status == 201
-  end
 
   private
 
   def gist_params
     {
-      description: I18n.t('services.gist_question_service.description', title: @test.title).to_s,
-      files: {
-        'test-guru-question.txt' => {
-          content: gist_content
+        description: I18n.t('services.gist_question_service.description', title: @test.title).to_s,
+        files: {
+            'test-guru-question.txt' => {
+                content: gist_content
+            }
         }
-      }
     }
   end
 
@@ -34,4 +31,21 @@ class GistQuestionService
     content += @question.answers.pluck(:title)
     content.join("\n")
   end
+
+  class ResultObject
+
+    def initialize(response = nil)
+      @response = response
+     end
+
+    def html_url
+      @response&.html_url
+    end
+
+    def success?
+      html_url.present?
+    end
+
+  end
+
 end

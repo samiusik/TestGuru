@@ -1,0 +1,11 @@
+<h1>Feedback message from :<%= @name %></h1>
+
+<p>
+  <%= @message %>
+</p>
+<p>
+  <b>Contact email: <%= @email %></b> <br/>
+  <% if @phone_number %>
+    <b>Contact number: <%= @phone_number %></b>
+  <% end %>
+</p>

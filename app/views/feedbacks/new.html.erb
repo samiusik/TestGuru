@@ -1,0 +1,41 @@
+<div class="row justify-content-center mt-2">
+  <div class="col col-md-7">
+    <h1 class="text-center ">Feedback</h1>
+
+    <div class="card border-primary mt-4 mb-4">
+      <div class="card-body">
+        <%= form_for @feedback do |form| %>
+
+          <%= render 'shared/errors', resource: @feedback %>
+
+          <div class="form-group">
+            <p>
+              <%= form.label :name, 'Your Name' %>
+              <%= form.text_field :name, id: :feedback_name, class: 'form-control'%>
+
+            </p>
+
+            <p>
+              <%= form.label :email, 'Your email' %>
+              <%= form.text_field :email, id: :feedback_email, class: 'form-control' %>
+            </p>
+
+            <p>
+              <%= form.label :phone_number, 'Your phone number'%>
+              <%= form.text_field :phone_number, id: :feedback_phone_number, class: 'form-control' %>
+            </p>
+
+            <p>
+              <%= form.label :message, 'Your message' %>
+              <%= form.text_area :message, cols: 40, rows: 5, id: :feedback_message,
+                                 class: 'form-control' %>
+            </p>
+
+            <p><%= form.submit 'Send', class: "btn btn-outline-primary" %></p>
+          </div>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
