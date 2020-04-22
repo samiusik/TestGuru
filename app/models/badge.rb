@@ -10,7 +10,7 @@ class Badge < ApplicationRecord
   }.freeze
 
   def self.images
-    images_path = 'app/assets/images/'
+    images_path = 'public/'
     badges = Dir.glob("#{images_path}badges/*")
     badges.map { |badge_path| badge_path.gsub(images_path, '') }
   end
