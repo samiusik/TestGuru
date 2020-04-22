@@ -1,0 +1,20 @@
+<div>
+  <strong>Your badges:</strong>
+  <% @user_badges.each do |user_badge| %>
+    <p>
+      <%= user_badge.title %>
+      <%= image_tag user_badge.image, size: '200x200' %>
+    </p>
+  <% end %>
+</div>
+
+<div>
+  <strong>All badges:</strong>
+
+  <% @badges.each do |badge| %>
+    <p>
+      <%= badge.title %>
+      <%= image_tag badge.image, size: '200x200' %>
+    </p>
+  <% end %>
+</div>

@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @badge.title %>
+</p>
+
+<p>
+  <%= image_tag(@badge.image, :alt => "image", size: 150) %>
+</p>
+
+<p>
+  <strong>Users:</strong>
+  <% @badge.users.each do |user|%>
+    <b><%= user.email %></b>
+  <% end %>
+</p>
+
+<p>
+  <strong>Rule:</strong>
+  <%= @badge.rule %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_badge_path(@badge) %> |
+<%= link_to 'Back', admin_badges_path %>

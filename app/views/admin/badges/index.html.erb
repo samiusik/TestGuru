@@ -1,0 +1,14 @@
+<h1>Бейджи</h1>
+  <% @badges.each do |badge| %>
+    <div>
+      <h3><%= badge.title %></h3>
+      <%= badge.image %>
+      <b><%= badge.rule %></b>
+      <%= link_to 'Показать', admin_badge_url(badge), class: 'btn btn-primary' %>
+      <%= link_to 'Изменить', edit_admin_badge_url(badge), class: 'btn btn-primary' %>
+      <%= link_to 'Удалить', admin_badge_url(badge),
+                      method: :delete, data: { confirm: 'Ты уверен?' },
+                      class: 'btn btn-primary'%>
+    </div>
+  <% end %> 
+<%= link_to 'Новый бейдж', new_admin_badge_path, class: 'btn btn-primary' %>
