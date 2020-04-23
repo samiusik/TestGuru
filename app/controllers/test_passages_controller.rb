@@ -13,17 +13,19 @@ class TestPassagesController < ApplicationController
   end
 
   def update
-    if params[:answer_ids].present?
-      @test_passage.accept!(params[:answer_ids])
-
-      if @test_passage.completed?
-        TestsMailer.completed_test(@test_passage).deliver_now
-        redirect_to result_test_passage_path(@test_passage)
-      else
-        render :show
-      end
+    if @test_passage.time_up?
+      redirect_to result_test_passage_path(@test_passage)
+      return
+      @test_passage.completed?
     else
-      flash[:notice] = t('.failure')
+      @test_passage.accept!(params[:answer_ids])
+    end
+
+    if @test_passage.completed?
+      BadgesAchievementService.new(@test_passage).call
+      TestsMailer.completed_test(@test_passage).deliver_now()
+      redirect_to result_test_passage_path(@test_passage)
+    else
       render :show
     end
   end
@@ -56,9 +58,4 @@ class TestPassagesController < ApplicationController
       redirect_to tests_path
     end
   end
-
-  def create_gist!(gist_url)
-    current_user.gists.create(question: @tests_passages.current_question, url: gist_url)
-  end
-
 end
